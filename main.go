@@ -47,7 +47,7 @@ func doSomething(c *gin.Context) {
 
 	if sName == st.SlackName && track == st.Track {
 		st.CurrentDay = time.Now().Weekday().String()
-		st.UTCTime = time.Now().UTC().Format(time.RFC3339)
+		st.UTCTime = time.Now().UTC().Format("2006-01-02T15:04:05Z")
 		st.StatusCode = http.StatusOK
 		c.JSON(http.StatusOK, st)
 		return
