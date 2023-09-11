@@ -40,16 +40,15 @@ func doSomething(c *gin.Context) {
 	{
 		st.SlackName = "meshach"
 		st.Track = "backend"
-		st.GithubFileURL = ""
-		st.GithubRepoURL = ""
+		st.GithubFileURL = "https://github.com/meshachdamilare/hng_simple_server/blob/main/main.go"
+		st.GithubRepoURL = "https://github.com/meshachdamilare/hng_simple_server"
+
+	}
+
+	if sName == st.SlackName && track == st.Track {
 		st.CurrentDay = time.Now().Weekday().String()
 		st.UTCTime = time.Now().UTC().Format(time.RFC3339)
 		st.StatusCode = http.StatusOK
-	}
-
-	fmt.Println(st)
-
-	if sName == st.SlackName && track == st.Track {
 		c.JSON(http.StatusOK, st)
 		return
 	}
